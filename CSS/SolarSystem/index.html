@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css" />
+	<title> Solar System CSS challenge </title>
+    </head>
+    
+    <body background="cf.jpg" text="black">
+	<font color="white"><center><u><h1> CSS SOLAR SYSTEM CHALLENGE</h1></u></center></font>
+	<center> Your task is to apply the knowledge taught in the CSS animation tutorial taught to you to make a complete solar system. Earth as an example has been shown to you below.</center>
+	<div class="chat">
+<div class="bubble you">To add planets to the solar system, use images provided to you. Earth as an example has been shown in the example.Using the techniques and properties taught in previous CSS animation lesson.
+
+</div><br>
+	<div class="bubble you"><-- PLANET PROPERTIES --> <p>Properties of earth have been shown as an example. Modify the other planets according to your visual experience.<p>
+		#earth { <br>
+    position: absolute; <br>
+    top: 0;<br>
+    left: 50%;<br>
+
+    height: 50px;<br>
+    width: 50px;<br>
+    margin-left: -25px;<br>
+    margin-top: -25px;<br>
+}
+	</div>
+ <div class="bubble you"><--ORBIT PROPERTIES --><p> The process of adding an Orbit to the planet and making it rotate as an imation is shown below, change the speed and properties of animation in accordance with the planets.<p>
+#earth-orbit { <br>
+    position: absolute; <br>
+    top: 40%; <br>
+    left: 45%; <br>
+
+    width: 700px; <br>
+    height: 700px; <br>
+    margin-top: -250px;<br>
+    margin-left: -250px;<br>
+
+    border-width: 2px; <br>
+    border-style: dotted; <br>
+    border-color: white;<br>
+    border-radius: 50%; <br>
+    
+    -webkit-animation: spin-right 5s linear infinite;}<br>
+	
+	
+</div>
+        <!-- Right below is an image of the sun -->
+        <img id="sun" src="http://goo.gl/PmbqZa">
+        <div id='earth-orbit'>
+                    <img id='earth' src="http://goo.gl/41IWnf">
+            </div>
+            
+        
+        <!-- Insert the 'earth' on the next line -->
+        
+        
+    </body>
+</html>
