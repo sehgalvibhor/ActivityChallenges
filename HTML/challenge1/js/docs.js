@@ -1,4 +1,3 @@
-/* Documentation sample */
 
 function loadPage(page) {
 
@@ -30,7 +29,7 @@ function addPage(page, book) {
 
 function updateTabs() {
 	
-	var tabs = {7: 'Clases', 12:'Constructor', 14:'Properties', 16:'Methods', 23:'Events'},
+	var tabs = {6: 'Text Editor', 8:'Hello World'},
 		left = [],
 		right = [],
 		book = $('.sample-docs'),
