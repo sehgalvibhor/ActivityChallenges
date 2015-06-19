@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<style>
+#header {
+    background-color:black;
+    color:white;
+    text-align:center;
+    padding:5px;
+}
+#nav {
+    line-height:30px;
+    background-color:#eeeeee;
+    height:700px;
+    width:300px;
+    float:left;
+    padding:5px;	      
+}
+#section {
+    width:350px;
+    float:left;
+    padding:10px;	 	 
+}
+#footer {
+    background-color:black;
+    color:white;
+    clear:both;
+    text-align:center;
+   padding:5px;	 	 
+}
+#div1, #div2,#div3,#div4,#div5,#div6,#div7,#div8
+{float:bottom; width:189px; height:59px; margin:5px;padding:2px;border:1px solid #aaaaaa;}
+</style>
+<script type=text/javascript>
+function allowDrop(ev)
+{
+ev.preventDefault();
+}
+function drag(ev)
+{
+ev.dataTransfer.setData("Text",ev.target.id);
+//CSS CHANGES HERE FOR ON PICKUP
+$( ".dragfive" ).css("border", "2px solid #ff9d00");
+$( ".select5" ).css("border", "2px solid #ff9d00");
+}
+function drop(ev)
+{
+ev.preventDefault();
+var data=ev.dataTransfer.getData("Text");
+ev.target.appendChild(document.getElementById(data));
+//CSS CHANGES HERE FOR ON DROP
+$( ".dragfive" ).css("border", "2px solid transparent");
+$( ".select5" ).css("border", "2px solid transparent");
+}
+
+if($('#div2').find('#drag1').length == 1)
+  {
+    alert("CORRECT!");
+  } else {
+    alert("Wrong!");
+  }
+</script>
+</head>
+
+<body>
+
+<div id="header">
+<h1>Welcome to Codeblocks!</h1>
+</div>
+
+<div id="nav">
+<h1>Next Block:</h1>
+<img src="th.png" draggable="true" ondragstart="drag(event)" id="drag1" width="189" height="59">
+<img src="hd.png" draggable="true" ondragstart="drag(event)" id="drag1" width="189" height="59">
+<img src="dh.png" draggable="true" ondragstart="drag(event)" id="drag1" width="189" height="59">
+<img src="bd.png" draggable="true" ondragstart="drag(event)" id="drag1" width="189" height="59">
+<img src="db.png" draggable="true" ondragstart="drag(event)" id="drag1" width="189" height="59">
+<img src="bp.png" draggable="true" ondragstart="drag(event)" id="drag1" width="189" height="59">
+
+</div>
+<p>
+<img src=result.png align=right margin=200px border=1px>
+<div align=center border=1px><u>INSTRUCTIONS</u><p>
+
+<li>1.Use the blocks present in the Blocks column to build a webpage similar to target window<br>
+<li>2.Drag and Drop the blocks into the boxes as shown <html> tag <br>
+<li>3.The blocks can only be used in the particular order they are assigned like Tetris style<br>
+<li>4.Build the blocks in accordance with the target webpage's syntax<br>
+<li>5.Lets Build<br>
+
+
+
+
+</div>
+
+<div id="section">
+<h2>LETS BUILD</h2>
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+  <img src="ht.png" draggable="true" ondragstart="drag(event)" id="drag1" width="189" height="59">
+</div>
+
+<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div id="div3" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div id="div4" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div id="div5" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div id="div6" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div id="div7" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+</div>
+
+<div id="footer">
+Copyright © Sugar Labs
+</div>
+
+</body>
+</html>
