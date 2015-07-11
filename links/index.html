@@ -1,0 +1,92 @@
+
+<!-- Designed and Developed by Utkarsh Dhawan for Sugar Labs -->
+<!--Links-Tutorial by Utkarsh Dhawan-->
+
+<html>
+
+<head>
+	<title>.::Web Confusion::.</title>
+	<link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+</head>
+
+<body>
+
+	<div class="wrapper">
+		<a href="../../index.html" class="home">Home</a>
+		<p class="pagecount" id="pagination"></p>
+		<a href="#"><div class="side"><img src="../assets/resources/tryit.png"></div></a>
+		<div class="main">
+			<blockquote>
+				<ul class="content">
+					
+				</ul>
+
+			<button class="previousbutton">Previous</button>
+			<button class="nextbutton">Next</button>
+			</blockquote>			
+		</div>
+	</div>
+
+	<script id="template-test" type="text/x-handlebars-template">
+
+								<h2>{{Title}}</h2>
+								
+								<p>{{{content}}}</p>
+								
+</script>
+
+<script type="text/javascript" src="../assets/js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="../assets/js/handlebars-v3.0.3.js"></script>
+
+
+	<script type="text/javascript">
+	var templatedatacount = 0,totpage=5;
+	var $ulcontent = $("ul.content");
+	var $prevbutton =$(".previousbutton");
+	var $nextbutton = $(".nextbutton");
+		var data=[{
+				id:"0",
+				Title:"Links",
+				content:"Links are found in nearly all web pages. Links allow users to click their way from page to page.<br>HTML links are <b>hyperlinks</b>.A hyperlink is a text or an image you can click on, and jump to another document.",
+			},{
+				id:"1",
+				Title:"The Types",
+				content:"The Linking in HTML can be of two types:<ul><li><b>Internal Linking</b>:Linking the elements within the same HTML page.</li><li><b>External Linking</b>:Linking two HTML pages.</li></ul>"
+			},{
+				id:"2",
+				Title:"Internal Linking",
+				content:"Internal linking uses id of any element on the same page to identify it's position and moves the web page's view to that area.<textarea disabled class='code'><html>\n<head>\n<title>Internal Linking</title>\n</head>\n<body>\n<a href='#target'>Click Me</a>\n\n<br><br><br><br><!--Just for pushing the heading a little downwards-->\n\n<h3 id='target'>This heading is the target</h3>\n</body>\n</html></textarea><div class='output'>Output:<br><a href='#target'>Click Me</a><br><br><br><br><h3 id='target'>This heading is the target</h3></div><br>The <b>&lt;a&gt</b> tag is used to add a hyperlink in a webpage.<br>The <b>href</b> attribute is used to specify the location of the link.<br>The <b>#target</b> is used for internal linking where # identifies an activity and target is the id of the element."
+			},{
+				id:"3",
+				Title:"External Linking",
+				content:"External linking takes input the address location of the linked page in the href attribute.The path or the address location of the linked file can be given in two ways:<br>1.Complete Path(Not Recommended)<q>eg.file://Desktop/about.html</q><br>2.Relative Path(<b>Recommended</b>)<q>eg. about.html</q>(if about.html is in the same folder)<br><textarea disabled class='code'><html>\n<head>\n<title>Internal Linking</title>\n</head>\n<body>\n<a href='http://google.com' target='blank'>Go to Google</a>\n</body>\n</html></textarea><div class='output'>Output:<br><a href='http://google.com' target='blank'>Go to Google</a></div><br>The <b>&lt;a&gt</b> tag is used to add a hyperlink in a webpage.<br>The <b>href</b> attribute is used to specify the location of the link.<br>The <b>target</b> attribute is used for setting the target space for the linked webpage.<br><table><tr><th>Value</th><th>Description</th></tr><tr><td>_blank</td><td>Opens the linked document in a new window or tab</td></tr><tr><td>_self</td><td>Opens the linked document in the same frame as it was clicked (this is default)</td></tr><tr><td>_parent</td><td>Opens the linked document in the parent frame</td></tr><tr><td>_top</td><td>Opens the linked document in the full body of the window</td></tr><tr><td>framename</td><td>Opens the linked document in a named frame</td></tr></table>"
+			},{
+				id:"4",
+				Title:"My Profile",
+				content:"The Challenge for today would be to design your very own Menu.Whenever you visit a website you usually see a navigation bar to go to different webpages on a website this navigation area is called a menu.<br>So today's task involves designing a menu.Having links which intenally link different paragraphs of your profile.Yes you heard it right your profile.You need to design a page which contains content that is <b>all about you</b>.Each part like About,Interests,Hobbies,Favorite Cartoon Character etc.The code would something like this:<br><textarea disabled class='code'><html>\n<head>\n<title>My menu</title>\n</head>\n<body>\n\n<a href='#home'>Home</a>\n\n<a href='#about'>About</a>\n\n<a href='#interest'>Interests</a>\n\n<br>\n\n<h3 id='home'>Home</h3>\n\nThis is my profile page and contains all about me.\n\n<br><h3 id='about'>About</h3>\n\n My name is Raju and I study in Timbaktu.My Father is a farmer and mother is a teacher\n\n<br>\n\n<h3 id='interest'>Interests</h3>\n\n I like to play football and I also like to make websites.\n\n</body>\n</html></textarea>"
+			}];
+		function calltemplate(){
+			var source = $("#template-test").html();
+			var template = Handlebars.compile(source);
+			var html = template(data[templatedatacount]);
+			$ulcontent.html(html);
+			document.getElementById('pagination').innerHTML="Page "+(templatedatacount+1)+" of "+totpage;
+		}
+		calltemplate();
+
+		$nextbutton.on('click', function() {
+			if (templatedatacount!=totpage-1) {
+				templatedatacount++;
+				calltemplate();
+			}
+		});
+		$prevbutton.on('click',function(){
+			if (templatedatacount!=0){
+				templatedatacount--;
+				calltemplate();
+			}	
+		});
+
+	</script>
+</body>
+</html>	

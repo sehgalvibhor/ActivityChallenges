@@ -1,0 +1,88 @@
+
+<!-- Designed and Developed by Utkarsh Dhawan for Sugar Labs -->
+<!--Lists-Tutorial by Utkarsh Dhawan-->
+
+<html>
+
+<head>
+	<title>.::Web Confusion::.</title>
+	<link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+</head>
+
+<body>
+
+	<div class="wrapper">
+		<a href="../../index.html" class="home">Home</a>
+		<p class="pagecount" id="pagination"></p>
+		<a href="#"><div class="side"><img src="../assets/resources/tryit.png"></div></a>
+		<div class="main">
+			<blockquote>
+				<ul class="content">
+					
+				</ul>
+
+			<button class="previousbutton">Previous</button>
+			<button class="nextbutton">Next</button>
+			</blockquote>			
+		</div>
+	</div>
+
+	<script id="template-test" type="text/x-handlebars-template">
+
+								<h2>{{Title}}</h2>
+								
+								<p>{{{content}}}</p>
+								
+</script>
+
+<script type="text/javascript" src="../assets/js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="../assets/js/handlebars-v3.0.3.js"></script>
+
+
+	<script type="text/javascript">
+	var templatedatacount = 0,totpage=4;
+	var $ulcontent = $("ul.content");
+	var $prevbutton =$(".previousbutton");
+	var $nextbutton = $(".nextbutton");
+		var data=[{
+				id:"0",
+				Title:"Lists",
+				content:"The lists in HTML are just like your regular day lists.They are used to list out points on a webpage.<br>They are two types of lists:<ol type='a'><li>Ordered List</li><li>Unordered List</li></ol><br>",
+			},{
+				id:"1",
+				Title:"Ordered List",
+				content:"An Ordered List is the one which serializes the list either <b>numerically</b> or <b>alphabetically</b><br><textarea disabled class='code'><html>\n<head>\n<title>Hello World</title>\n</head>\n<body>\n<ol type='a'>\n<li>First Member</li>\n<li>Second Member</li>\n</ol>\n</body>\n</html></textarea><br><div class='output'>Output:<br><ol type='a'><li>First Member</li><li>Second Member</li></ol></div><br><table><tr><th>Attribute</th><th>Value</th><th>Description</th></tr><tr><td>start</td><td>number</td><td>Specifies the start value of an ordered list</td></tr><tr><td>type</td><td>1<br>a<br>A<br>I<br>i</td><td>Specifies the kind of marker to use in the list</td></tr></table>"
+			},{
+				id:"2",
+				Title:"Unordered List",
+				content:"An Unordered List is the one which defines an <b>Unordered(bulleted)</b> list<br><textarea disabled class='code'><html>\n<head>\n<title>Hello World</title>\n</head>\n<body>\n<ul type='circle'>\n<li>First Member</li>\n<li>Second Member</li>\n</ul>\n</body>\n</html></textarea><br><div class='output'>Output:<br><ul type='circle'><li>First Member</li><li>Second Member</li></ul></div><br><table><tr><th>Attribute</th><th>Value</th><th>Description</th></tr><tr><td>type</td><td>disc<br>square<br>circle</td><td>Specifies the kind of marker to use in the list</td></tr></table>"
+			},{
+				id:"3",
+				Title:"My To Do List",
+				content:"Today's task is to create a To do list.It is sometimes a good idea to make a list of the tasks to be done.So we are going to do the same.You have to code a page in the shell consisting of a heading for the page and a simple list Ordered/Unordered.You need to produce an output similar to this:<div class='output'>Output:<br><ul type='circle'><li>Brush Teeths</li><li>Go to School</li><li>Practice my web building skills</li></ul></div>"
+			}];
+		function calltemplate(){
+			var source = $("#template-test").html();
+			var template = Handlebars.compile(source);
+			var html = template(data[templatedatacount]);
+			$ulcontent.html(html);
+			document.getElementById('pagination').innerHTML="Page "+(templatedatacount+1)+" of "+totpage;
+		}
+		calltemplate();
+
+		$nextbutton.on('click', function() {
+			if (templatedatacount!=totpage-1) {
+				templatedatacount++;
+				calltemplate();
+			}
+		});
+		$prevbutton.on('click',function(){
+			if (templatedatacount!=0){
+				templatedatacount--;
+				calltemplate();
+			}	
+		});
+
+	</script>
+</body>
+</html>	

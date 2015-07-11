@@ -1,0 +1,96 @@
+
+<!-- Designed and Developed by Utkarsh Dhawan for Sugar Labs -->
+<!--Diving In-Tutorial by Utkarsh Dhawan-->
+
+<html>
+
+<head>
+	<title>.::Web Confusion::.</title>
+	<link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+</head>
+
+<body>
+
+	<div class="wrapper">
+		<a href="../../index.html" class="home">Home</a>
+		<p class="pagecount" id="pagination"></p>
+		<a href="#"><div class="side"><img src="../assets/resources/tryit.png"></div></a>
+		<div class="main">
+			<blockquote>
+				<ul class="content">
+					
+				</ul>
+
+			<button class="previousbutton">Previous</button>
+			<button class="nextbutton">Next</button>
+			</blockquote>			
+		</div>
+	</div>
+
+	<script id="template-test" type="text/x-handlebars-template">
+
+								<h2>{{Title}}</h2>
+								
+								<p>{{{content}}}</p>
+								
+</script>
+
+<script type="text/javascript" src="../assets/js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="../assets/js/handlebars-v3.0.3.js"></script>
+
+
+	<script type="text/javascript">
+	var templatedatacount = 0,totpage=6;
+	var $ulcontent = $("ul.content");
+	var $prevbutton =$(".previousbutton");
+	var $nextbutton = $(".nextbutton");
+		var data=[{
+				id:"0",
+				Title:"Diving In",
+				content:"Since this might be your first time so let's start from something really basic and interesting.We are going to dive in and create a simple webpage.The webpage is just like a page of your book.It consists of all the goodies like images,text etc.<br>The webpage is just like a page of your book.It consists of all the goodies like images,text etc.<br>So basically you need tools like these:<ul><li>Browser</li><li>Text Editor</li></ul>",
+			},{
+				id:"1",
+				Title:"Text Editor",
+				content:"Basically a text editor is a program used to edit text files like documents,source code of programs etc.<br>There exist text editors with every OS and software development packages.Some examples of basic text editors are:<br><ul>					<li>Write(Sugar)</li><li>vi(Terminal Activity)</li><li>nano(Terminal Activity)</li><li>Gedit(Sugar)</li></ul><br>In this tutorial we would be using the shell of the Browser Activity as it would help in giving us intstant results.<br>You have a freedom of selecting any text editor of your choice."
+			},{
+				id:"2",
+				Title:"The Shell",
+				content:"The JavaScript shell is a command-line program for the Browse Activity.The main aim of the shell in this Activity would be helping out the user to write and edit the code in real time enviounment.<br><center><div class='content_img'><img src='../assets/resources/shell.png' class='inline_img'>This is the JavaScript Shell</div></center>"
+			},{
+				id:"3",
+				Title:"Installing the Shell",
+				content:"The JavaScript Shell can be very easily installed by adhering to the following steps:<ul><li>Open the Browse Activity.</li><li>Go to github.com/</li></ul>"
+			},{
+				id:"4",
+				Title:"Hello",
+				content:"So Welcome to the world of challenges.You would be given task at the end of every tutorial and you need to try it out in the Shell as easy as that.<br>As this would be your first challenge,we would go easy on you.You need to Design a very simple page looking something like this:<br><center><div class='content_img'><img src='../assets/resources/hello_world.png' class='inline_img'>This is the sample page.</div></center>"
+			},{
+				id:"5",
+				Title:"Hello World(Code Explained)",
+				content:"Below is the code for the output shown previously.<br><textarea disabled class='code'><html>\n<head>\n<title>Hello World</title>\n</head>\n<body>\n\t<h1>Hello World</h1>\n</body>\n</html></textarea><br><br>Everything written between <> are called as elements.<br>Every html code should be enclosed between the tags <b>&lt;html&gt; ... &lt;/html&gt;</b>.<br>The <b>&lt;head&gt;</b> element is a container for all the head elements. The <b>&lt;head&gt;</b> element can include a title for the document, scripts, styles, meta information, and more.<br>The <b>&lt;body&gt;</b> element defines the document's body.This element contains all the contents of an HTML document, such as text, hyperlinks, images, tables, lists, etc.<br>The <b>&lt;h1&gt;</b> tag is used for giving the headings on the webpage."
+			}];
+		function calltemplate(){
+			var source = $("#template-test").html();
+			var template = Handlebars.compile(source);
+			var html = template(data[templatedatacount]);
+			$ulcontent.html(html);
+			document.getElementById('pagination').innerHTML="Page "+(templatedatacount+1)+" of "+totpage;
+		}
+		calltemplate();
+
+		$nextbutton.on('click', function() {
+			if (templatedatacount!=totpage-1) {
+				templatedatacount++;
+				calltemplate();
+			}
+		});
+		$prevbutton.on('click',function(){
+			if (templatedatacount!=0){
+				templatedatacount--;
+				calltemplate();
+			}	
+		});
+
+	</script>
+</body>
+</html>	
