@@ -1,0 +1,19 @@
+<svg width='640' height='480' style='border:solid black 2'
+     xmlns='http://www.w3.org/2000/svg'
+     xmlns:xlink='http://www.w3.org/1999/xlink'>
+     <defs>
+         <circle id='c1' cx='0' cy='0' r='3'
+             stroke='none' fill='black' />
+     </defs>
+
+<g transform='translate(100,100) rotate(53,75,80)'>
+     <use x='00' y='125' xlink:href='#c1' />
+     <use x='00' y='25'  xlink:href='#c1' />
+     <use x='95' y='00'  xlink:href='#c1' />
+     <use x='156' y='75' xlink:href='#c1' />
+     <use x='95' y='155' xlink:href='#c1' />
+     <polygon points = '00,125 95,00 95,155 00,25 156,75'
+         fill='yellow' stroke='red' stroke-width='3' />
+</g>
+
+</svg>

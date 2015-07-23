@@ -1,0 +1,46 @@
+                var data=[{
+                                id:"0",
+                                Title:"A blue circle",
+                                content:"<textarea disabled class='code'>"
+                                "<svg width='300' height='3000' " 
+                                + "xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'>"
+                                + "<circle cx='30' cy='30' r='20'" 
+                                + "    stroke = 'none' fill = 'blue' />"
+                                + "</svg>\n"
+                                + '</textarea><br>"
+                                + "This is getting easy. The <emphasis>circle</emphasis> element needs attributes to tell where the "
+                                + "center of the circle should be positioned and the radius of the circle. So attributes 'cx' and 'cy' give "
+                                + "the x and y co-ordinates of the center. The 'r' attribute gives the radius."
+                        },{
+                                id:"1",
+                                Title:"Many circles",
+                                content: "TO make several circles, we can use the <emphasis>defs</emphasis> element as before."
+                                + "<defs>"
+                                + "<circle id='c1' cx='30' cy='30' r='20' stroke='none' />"
+                                + "</defs>"
+                                + "<use x='20' y='20' fill = 'red' xlink:href='#c1' />"
+                                + "<use x='100' y='50' fill = 'green' xlink:href='#c1' />"
+                                + "<use x='50' y='100' fill = 'blue' xlink:href='#c1' />"
+                                + "<use x='20' y='50' fill = 'yellow' xlink:href='#c1' />"
+                                + "Define a circle. Add four use elements, each with a differenc location adn a differenc color."
+  
+                        },{
+                                id:"2",
+                                Title:"Challenge: Concentric circles",
+                                content: "Concentric circles have the same center but different radii (plural or radius). Let's draw some with heavy "
+                                + "strokes and no fill. Add the attribute: fill = 'none' to the circle definition."
+                                + "Remove the stroke = 'none' attribute. Also remove the 'r' attribute. We want to set these in "
+                                + "the use elements. A use element would look like this."
+                                + "<use r = '20' stroke = 'red' stroke-width='5' xlink:href='#c1' />"
+                                + "By removing the x, y attributes, the circles will have the same center. Make the r value different in each "
+                                + "use."  
+
+                        },{
+                                id:"3",
+                                Title:"Challenge: Four in the box",
+                                content: "You know enough to be able to make a picture with a rectangular box containing four differenct circles, "
+                                + "each with a different size and color."
+                                + "Hint: draw the box with a black stroke with a width of 5. Draw the circles with stroke='none' and different colors "
+                                + "for fill. Try different values to see what looks best." 
+                        }];
+

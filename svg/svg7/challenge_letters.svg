@@ -1,0 +1,10 @@
+<svg width='640' height='480' style='border:solid black 2'
+     xmlns='http://www.w3.org/2000/svg'
+     xmlns:xlink='http://www.w3.org/1999/xlink'>
+     <g transform='translate(50,50)'>
+     <path d='M0,100 L50,0 L100,100 M25,50 L75,50' 
+           fill='none' stroke='black' stroke-width='3' />
+     </g>
+</svg>
+
+

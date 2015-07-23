@@ -1,0 +1,40 @@
+                var data=[{
+                                id:"0",
+                                Title:"The Earth in orbit",
+                                content:"<textarea disabled class='code'>"
+                                + "<p>This time we are going to make a picture showing the earth in its orbit about the sun."
+                                + "This picture will have three components: a circle for the sun, a circle for the earth, and " 
+                                + "an elliptical line showing the orbit.</p>"
+                                + "The new element is the ellipse."
+                                + "<ellipse cx="60" cy="60" rx="50" ry="25"/>"
+                                + "It is the same as a circle except that there are two radii. Like the square and rectangle, if the "
+                                + "two radii are equal, the result is a circle." 
+                                + "The Earth's orbit is an ellipse. In January, the Earth is closer to the sun than it is in July."
+                        },{
+                                id:"1",
+                                Title:"A first try",
+                                content: "Let's put the sun to the left side of the picture. The sun is much bigger that the Earth but for our "
+                                + "picture, we'll make the sun three times the size of Earth. The difference in distance from the Sun at the shortest "
+                                + "point - periphelion and the furthest point (aphelion) is not very great, so for our picture we need to exaggerate'.
+                                + "<svg>"
+                                +   "<g transform = 'translate(50,50)'>
+                                +   "<circle cx='100' cy='100' r='30' stroke='none' fill='yellow' />"
+                                +   "<ellipse cx='150' cy='150' rx='100' ry='200' fill='none' stroke='black' stroke-width='5' transform='rotate(-45,150,150)' />"
+                                +   "<circle cx='290' cy='290' r='10' stroke='none' fill='blue' />"
+                                +   "</g>"
+                                + "</svg>"
+                                 
+                        },{
+                                id:"2",
+                                Title:"Challenge: Adding planets",
+                                content:"<p>You can add the orbits of Mercury (0.4 AU) and Venus (0.7 AU) which are closer to the Sun and the orbit of Mars (1.5 AU) "
+                                + "which is further. The Earth is at 1 Astronomical Unit. You will need to make Earth's orbit less elliptical to accommodate the "
+                                + "other planets. Can you show the Moon's orbit around the Earth?</p>"
+                                + "<p>The best way to proceed is to add one component at a time. For example, add an orbit for Venus. Then add the circle for "
+                                + "the planet itself. Keep trying different values for the attributes until you are happy with your picture. Then proceed to "
+                                + "add another component.</p>"
+                                + "Before you start, save your picture with just the Earth's orbit. It will be in the Journal. Make sure to give it a name you "
+                                + "can remember such as: solar system - Earth. Then the next picture can be 'solar system - Earth and Venus'. Sometimes, you will "
+                                + "make changes that don't work out. You can just reload your original from the Journal and try another way. 
+                        }];
+

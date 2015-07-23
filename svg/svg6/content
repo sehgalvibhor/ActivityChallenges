@@ -1,0 +1,44 @@
+  [{
+     	id:"0",
+          Title:"A pentagon with polyline",
+          content:"<textarea disabled class='code'>"
+          + "<svg width='60' height='60' 
+          + "xmlns='http://www.w3.org/2000/svg'\n"
+          + "xmlns='http://www.w3.org/2000/svg'\n"
+          + "<defs>\n"
+          + "<circle id='c1' cx='0' cy='0' r='3'\n"
+          + "   stroke='none' fill='black' />\n"
+          + "</defs>\n"
+          + "<g transform='translate(250,150)'>\n"
+          + "<polyline points='00,125 00,25 95,00 156,75 95,155'\n"
+          + "  stroke='red' stroke-width='5' fill='none' />\n"
+          + "</g>\n"
+          + "</svg>\n"
+          + "</textarea><br>"
+          + "<p>The polyline element takes a list of points to connect. The ',' character "
+          + "is treated the same as a space. However, it is wise to use the ',' to show "
+          + "that the list elements are point with two co-ordinates x,y.</p>"
+          + "<p>Notice that the attribute <em>fill</em> is set to 'none'. The line "
+          + "element can not be filled. However, a polyline figure can. "
+          + "Set the value of fill to a color other than red or black - maybe blue.</p>"
+          + "<p>Notice also, that the pentagon is not closed (easy to see with fill 
+          + "= 'none'. </p> "
+  },{
+     	id:"1",
+          Title:"A pentagon with polygon",
+          content:"The <em>polygon</em> element works the same as polyline except "
+          "the last point is automatically connected to the first. Try replacing "
+          "the word polyline with polygon and look at the resulting picture with fill 
+          "='none'."
+  },{
+     	id:"2",
+          Title:"Make a star",
+          content: "<p>What happens when you change the sequence of points in the "
+          + "points list? Can you make a star?</p>"
+          + "<p>The star is a little tilted'. Try<br> "
+          + "<g transform = 'translate(250,150) rotate(45, 78, 78)' >"
+          + "The point (78,78) is approximately the center of the figure. Why?"
+          + "The rotation angle of 45 degrees may not be enough. Try different "
+          + "angles until the star looks right."
+  }]; 
+

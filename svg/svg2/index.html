@@ -1,0 +1,120 @@
+
+<html>
+
+<head>
+	<title>.::Web Confusion::.</title>
+	<link rel="stylesheet" type="text/css" href="../../assets/css/style.css">
+</head>
+
+<body>
+
+	<div class="wrapper">
+		<a href="../../index.html" class="home">Home</a>
+		<p class="pagecount" id="pagination"></p>
+		<a href="#"><div class="side"><img src="../../assets/resources/tryit.png"></div></a>
+		<div class="main">
+			<blockquote>
+				<ul class="content">
+					
+				</ul>
+
+			<button class="previousbutton">Previous</button>
+			<button class="nextbutton">Next</button>
+			</blockquote>			
+		</div>
+	</div>
+
+	<script id="template-test" type="text/x-handlebars-template">
+
+								<h2>{{Title}}</h2>
+								
+								<p>{{{content}}}</p>
+								
+</script>
+
+<script type="text/javascript" src="../../assets/js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="../../assets/js/handlebars-v3.0.3.js"></script>
+
+
+	<script type="text/javascript">
+	var templatedatacount = 0,totpage=4;
+	var $ulcontent = $("ul.content");
+	var $prevbutton =$(".previousbutton");
+	var $nextbutton = $(".nextbutton");
+                var data=[{
+                                id:"0",
+                                Title:"A red cross",
+                                content:"<textarea disabled class='code'>"
+                                + "<svg width='300' height='300' xmlns='http://www.w3.org/2000/svg'>\n"
+                                + "<defs>\n"
+                                + "<rect id='r1' x='0' y='0' width='40' height='100'\n"
+                                +     " stroke = 'none' fill='red' />\n"
+                                + "</defs>\n"
+                                + "<use x='0' y='0' xlink:href = '#r1 />\n"
+                                + "<use x='0' y='0' transform='rotate(90,20,50)' xlink:href = '#r1 />\n"
+                                + "</svg>\n"
+                                + "</textarea><br>"
+                                + "This is the text of the svg 'red cross'. Let's take a look at what's new in this picture."
+                                + "The <emphasize>defs</emphasize> allows us to define a specific part of our picture. Notice that we "
+                                + "only need to add the defs tags to contain the rectangle. The rectangle element is unchanged. "
+                                + "The <emphasis>use</emphasis> element allows us to put the rectangle in the picture more than once."
+                                + "The x and y attributes tell where the rectangle should go. The 'xlink' attribute tells the renderer which " 
+                                + "defined shape to use. Notice that the name is defined as 'r1' but referred to as '#r1'. "
+                                + "The rotate attribute you met in the previous challenge. It says to rotate the rectangle by 90 degrees around its "
+                                + "center. "
+                        },{
+                                id:"1",
+                                Title:"Position of the Red Cross",
+                                content: "In the previous challenge we used the rectangle's x and y attributes to position it in the picture. This "
+                                + "time, we are going to do it with a <em>transform</em> and a new element 'g'. "
+                                + "<g transform = translate(50,50)>"
+                                + "<use x='0' y='0' xlink:href = '#r1' />"
+                                + "<use x='0' y='0' transform='rotate(90,20,50)' xlink:href = '#r1' />"
+                                + "</g>"
+                                + "The advantage is that the transform moves both of the rectangles. We can leave the attributes in the use elements "
+                                + "at the origin (0,0) because the translate adds the 50 to each co-ordinate automatically."
+                                
+                        },{
+                                id:"2",
+                                Title:"Challenge",
+                                content: "The basic challenge is to make the red cross. You will start with the svg element, but must type in the rest "
+                                + "of the svg commands. When that is working, try to change the size. Can you draw the cross at an angle? If using two rectangles "
+                                + "is good, using more should be better. Use four rectangles rotated at different angles (take 4 use elements). "
+                                + "All of the rectangles are red. How could you draw each rectangle in a different color?"
+                                + "One strategy would be to set a fill attribute with a different value (red, green, blue, yellow)  in each use element. "
+                                + "Try it. The rectangles remain red. The problem is that you need to remove the fill attribute from the rectangle definition "
+                                + "in the defs element. " 
+                        },{
+                                id:"3",
+                                Title:"Stroke",
+                                content: "The <em>stroke</em> attribute tells the renderer to draw the figure (as with a pen). The value is the color ink to use. "
+                                + "The <em>stroke-width</em> attribute tells how wide to make the line. See what happens when you "
+                                + "set the attributes stroke = 'black' stroke-width='5' to the rectangle definition." 
+                        }];
+
+		function calltemplate(){
+			var source = $("#template-test").html();
+                        console.log(source);
+			var template = Handlebars.compile(source);
+			var html = template(data[templatedatacount]);
+			$ulcontent.html(html);
+			document.getElementById('pagination').innerHTML="Page "+(templatedatacount+1)+" of "+totpage;
+		}
+		calltemplate();
+
+		$nextbutton.on('click', function() {
+			if (templatedatacount!=totpage-1) {
+				templatedatacount++;
+				calltemplate();
+			}
+		});
+		$prevbutton.on('click',function(){
+			if (templatedatacount!=0){
+				templatedatacount--;
+				calltemplate();
+			}	
+		});
+
+	</script>
+</body>
+</html>	

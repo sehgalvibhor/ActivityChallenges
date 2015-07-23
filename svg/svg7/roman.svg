@@ -1,0 +1,9 @@
+<svg width='400' height='400' style='border:solid black 2'
+     xmlns='http://www.w3.org/2000/svg'
+     xmlns:xlink='http://www.w3.org/1999/xlink'>
+
+<line x1='50' y1='50' x2='50' y2='100' stroke='black' />
+<line x1='100' y1='100' x2='75' y2='50' stroke='black' />
+<line x1='100' y1='100' x2='125' y2='50' stroke='black' />
+<path d= 'M50,150 L50,200 M100,200 L75,150 M100,200 L125,150' stroke='black' />
+</svg>

@@ -1,0 +1,112 @@
+
+<html>
+
+<head>
+	<title>.::Web Confusion::.</title>
+	<link rel="stylesheet" type="text/css" href="../../assets/css/style.css">
+</head>
+
+<body>
+
+	<div class="wrapper">
+		<a href="../../../index.html" class="home">Home</a>
+		<p class="pagecount" id="pagination"></p>
+		<a href="#"><div class="side"><img src="../../assets/resources/tryit.png"></div></a>
+		<div class="main">
+			<blockquote>
+				<ul class="content">
+					
+				</ul>
+
+			<button class="previousbutton">Previous</button>
+			<button class="nextbutton">Next</button>
+			</blockquote>			
+		</div>
+	</div>
+
+	<script id="template-test" type="text/x-handlebars-template">
+
+								<h2>{{Title}}</h2>
+								
+								<p>{{{content}}}</p>
+								
+</script>
+
+<script type="text/javascript" src="../../assets/js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="../../assets/js/handlebars-v3.0.3.js"></script>
+
+
+	<script type="text/javascript">
+	var templatedatacount = 0,totpage=3;
+	var $ulcontent = $("ul.content");
+	var $prevbutton =$(".previousbutton");
+	var $nextbutton = $(".nextbutton");
+        var data=[{ 
+     	id:"0",
+          Title:"A pentagon",
+          content:"<textarea disabled class='code'>"
+          + "<svg width='60' height='60'n" 
+          + "xmlns='http://www.w3.org/2000/svg'\n"
+          + "xmlns='http://www.w3.org/2000/svg'\n"
+          + "<defs>\n"
+          + "<circle id='c1' cx='0' cy='0' r='3'\n"
+          + "   stroke='none' fill='black' />\n"
+          + "</defs>\n"
+          + "<g transform='translate(250,150)'>\n"
+          + "<use x='00' y='125' xlink:href='#c1' />\n"
+          + "<use x='00' y='25'  xlink:href='#c1' />\n"
+          + "<use x='95' y='00'  xlink:href='#c1' />\n"
+          + "<use x='156' y='75' xlink:href='#c1' />\n"
+          + "<use x='95' y='155' xlink:href='#c1' />\n"
+          + "</g>n"
+          + "</svg>\n"
+          + "</textarea><br>"
+          + "<p>This is the svg text to make a picture with five dots. The challenge "
+          + "is to connect the dots with red lines to make a pentagon. The svg defines "
+          + "a small black circle shape - a dot. The use elements place the five dots "
+          + "in the picture."
+          + "</p> "
+          + "Svg has a <em>line</em> element. "  
+  },{
+     	id:"1",
+          Title:"Connecting the dots",
+          content:"Connecting the first two dots with the line element looks like this."
+          + "<line x1='0' y1='25' x2='95' y2='0' stroke ='red' stroke-width='3' />"
+          + "So line makes a line segment with two points. "
+          + "(x1,y1) = (0,25) and (x2,y2) = (25,95)."
+          + "So you will need five lines to make the pentagon. The last line connects "
+          + "the fifth point back to the first." 
+  },{
+     	id:"2",
+          Title:"Make a star",
+          content: "A star and a pentagon both have five points and five lines, "
+          + "connected in a different order. We connected the points 1-2-3-4-5-1 to "
+          + "make the pentagon. Now try connecting the points 1-3-5-2-4-1."
+  }];
+
+		function calltemplate(){
+			var source = $("#template-test").html();
+                        console.log(source);
+			var template = Handlebars.compile(source);
+			var html = template(data[templatedatacount]);
+			$ulcontent.html(html);
+			document.getElementById('pagination').innerHTML="Page "+(templatedatacount+1)+" of "+totpage;
+		}
+		calltemplate();
+
+		$nextbutton.on('click', function() {
+			if (templatedatacount!=totpage-1) {
+				templatedatacount++;
+				calltemplate();
+			}
+		});
+		$prevbutton.on('click',function(){
+			if (templatedatacount!=0){
+				templatedatacount--;
+				calltemplate();
+			}	
+		});
+
+	</script>
+</body>
+</html>	

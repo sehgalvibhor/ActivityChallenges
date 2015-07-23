@@ -1,0 +1,10 @@
+<svg width='400' height='400' 
+    xmlns='http://www.w3.org/2000/svg' 
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+>
+<g transform = 'translate(50,50)'>
+   <circle cx='100' cy='100' r='30' stroke='none' fill='yellow' />
+   <ellipse cx='150' cy='150' rx='100' ry='200' fill='none' stroke='black' stroke-width='5' transform='rotate(-45,150,150)' />
+   <circle cx='290' cy='290' r='10' stroke='none' fill='blue' />
+</g>
+</svg> 

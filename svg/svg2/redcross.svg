@@ -1,0 +1,11 @@
+<svg width='500' height='500' xmlns='http://www.w3.org/2000/svg' xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<rect id='r1' x='0' y='0' width='40' height='120'
+      stroke = 'none' fill='red' />
+</defs>
+<g transform='translate(100,100)'>
+<use x='0' y='0' xlink:href = '#r1'/>
+<use x='0' y='0' transform='rotate(90,20,60)' xlink:href = '#r1'/>
+</g>
+</svg>
+

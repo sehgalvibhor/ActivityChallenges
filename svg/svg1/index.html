@@ -1,0 +1,169 @@
+
+<html>
+
+<head>
+	<title>.::Web Confusion::.</title>
+	<link rel="stylesheet" type="text/css" href="../../assets/css/style.css">
+</head>
+
+<body>
+
+	<div class="wrapper">
+		<a href="../../../index.html" class="home">Home</a>
+		<p class="pagecount" id="pagination"></p>
+		<a href="#"><div class="side"><img src="../../assets/resources/tryit.png"></div></a>
+		<div class="main">
+			<blockquote>
+				<ul class="content">
+					
+				</ul>
+
+			<button class="previousbutton">Previous</button>
+			<button class="nextbutton">Next</button>
+			</blockquote>			
+		</div>
+	</div>
+
+	<script id="template-test" type="text/x-handlebars-template">
+
+								<h2>{{Title}}</h2>
+								
+								<p>{{{content}}}</p>
+								
+</script>
+
+<script type="text/javascript" src="../../assets/js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="../../assets/js/handlebars-v3.0.3.js"></script>
+
+
+	<script type="text/javascript">
+	var templatedatacount = 0,totpage=7;
+	var $ulcontent = $("ul.content");
+	var $prevbutton =$(".previousbutton");
+	var $nextbutton = $(".nextbutton");
+                var data=[{
+                                id:"0",
+                                Title:"A red square",
+                                content:"<textarea disabled class='code'>"
+                                + "<svg width='60' height='60'\n"
+                                + "xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'\n"
+                                + ">\n"
+                                + "<rect x='0' y='0' width='40' height='40'\n"
+                                +     " stroke = 'none' fill='red' />\n"
+                                + "</svg>\n"
+                                + "</textarea><br>"
+                                + "These are the commands to the computer to make a red square.<br>"
+                                + "Let's take a look at them one by one."
+                        },{
+                                id:"1",
+                                Title:"Rendering",
+                                content:"SVG is a text language used to tell a computer how to draw a picture. "
+                                + "The text is read by a special computer program which renders the picture based "
+                                + "on the text. Since the text is read by a computer program and not a human, it must "
+                                + "be be completely correct. If not, the renderer my not show anything where the picture "
+                                + "should be!"
+                        },{
+                                id:"2",
+                                Title:"Elements",
+                                content:"<textarea disabled class='code'>"
+                                + "<svg>\n"
+                                + "<rect />\n"
+                                + "</svg>\n"
+                                + "</textarea><br>"
+                                + "An svg picture is made up of elements. An element begins with an open tag: < svg > "
+                                + "and ends with a close tag < /svg >. An element may contain other elements. In this "
+                                + "case, the <em>svg</em> element contains a <em>rect</em> element. "
+                                + "If an element does not have any content, it can be opened and closed with one tag: < rect / >. "
+                        },{
+                                id:"3",
+                                Title:"Svg Element Attributes",
+                                content:"<textarea disabled class='code'>"
+                                + "<svg width='500' height='500' "
+                                + "xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'>"
+                                + "</svg>"
+                                + "</textarea><br>"
+                                + "The opening svg tag has three attributes: x, y, and xmlns. An attribute has "
+                                + "an attribute name 'attr', '=', and a value, 'value'. In this case: "
+                                + "width = '60' height='60' tells the renderer to make the picture 60 pixels wide and "
+                                + "60 pixels high. A pixel (picture element) is a position on the screen which can be given "
+                                + "a color. Your XO has 900 rows with 1200 pixels in each row. So the picture will only a very "
+                                + "small part of the screen. Notice, each value is enclosed in quotes '60' This tells the renderer "
+                                + "that the value is a text string. If you forget them, you will get an error message. "
+                                + "The two xlmns attributes tell the renderer which commands we can use. Just copy them " 
+                                + "exactly as they are here in all your pictures."
+                        },{
+                                id:"4",
+                                Title:"Making the square",
+                                content:"<textarea disabled class='code'>"
+                                + "<rect x='0' y='0' width='40' height='40'\n"
+                                + "     stroke = 'none' fill='red' />\n"
+                                + "</textarea><br>"
+                                + "<p>The rect element tells the renderer to draw a rectangle. Naturally, a square is a rectangle with "
+                                + "width = length (or height)."
+                                + "<p>The x and y attributes tell the renderer to position the rectangle at the origin (0,0). The x attribute "
+                                + "names the position of the pixel along the row from left to right. The '0' pixel is the first one in the row. "
+                                + "The y attribute names the row from top to bottom. So the origin (x,y) = (0,0) is the first pixel in the top row."
+                                + "That pixel is at the top, left corner of the screen. Actually, the top, left pixel available to the renderer. "
+                                + "The structure of the web page may reserve part of the screen for itself.</p>"
+                                + "The width and height attributes tell the renderer how big to make the rectangle. OUr square will have a width " 
+                                + "and width of 40 pixels.</p>"
+                                + "We'll learn about the stroke attribute. The value 'none', says not to make a stroke. The 'fill' attribute tells "
+                                + "the renderer what color to use to fill the rectangle."
+                        },{
+                                id:"5",
+                                Title:"Your challenge",
+                                content:"<textarea disabled class='code'>\n"
+                                + "<svg width='500' height='500'\n"
+                                + "xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'>\n"
+                                + "</svg></textarea><br>"
+                                + "This will be the start for making your picture in the Browse shell. It will show as a blank sheet of paper, "
+                                + "ready for you to make your picture. You will need to type in the <em>rect</em> element between "
+                                + "the svg tags. Change the <em>x</em> and <em>y</em> attributes to '10' to move the "
+                                + "square. What values put the square in the middle of the picture?" 
+                                + "Then you should change the size of your picture (change svg height and width to 500. Try different "
+                                + "sizes to see what happens. Change the fill color to something you like better. The renderer will probably "
+                                + "recognize most colors you try: 'blue', 'green', 'purple', 'chartruese'."
+                        },{
+                                id:"6",
+                                Title:"Extra challenge",
+                                content:"<textarea disabled class='code'>"
+                                + "<g id='square' transform = 'rotate(90, 20, 20)'\n"
+                                + "<rect x='0' y='0' width='40' height='40'\n"
+                                + "     stroke = 'none' fill='red' />\n"
+                                + "</g>"
+                                + "</textarea><br>"
+                                + "The g element groups one or more elements which will appear together in a picture. "
+                                + "The transform attribute can do many things. In this case it will rotate our square. "
+                                + "The id attribute gives the g element a name. It is not needed in this picture "
+                                + "but it will become valuable in future more compliecated pictures. "
+                                + "The value 'rotate(90, 20, 20)' tells the renderer to rotate the g group by 90 degrees "
+                                + "clockwise about the point (20,20). This point is the center of the square. Why? "
+                                + "so make a picture that shows a gold diamond."
+                        }];
+
+		function calltemplate(){
+			var source = $("#template-test").html();
+                        console.log(source);
+			var template = Handlebars.compile(source);
+			var html = template(data[templatedatacount]);
+			$ulcontent.html(html);
+			document.getElementById('pagination').innerHTML="Page "+(templatedatacount+1)+" of "+totpage;
+		}
+		calltemplate();
+
+		$nextbutton.on('click', function() {
+			if (templatedatacount!=totpage-1) {
+				templatedatacount++;
+				calltemplate();
+			}
+		});
+		$prevbutton.on('click',function(){
+			if (templatedatacount!=0){
+				templatedatacount--;
+				calltemplate();
+			}	
+		});
+
+	</script>
+</body>
+</html>	

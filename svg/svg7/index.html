@@ -1,0 +1,110 @@
+
+<html>
+
+<head>
+	<title>.::Web Confusion::.</title>
+	<link rel="stylesheet" type="text/css" href="../../assets/css/style.css">
+</head>
+
+<body>
+
+	<div class="wrapper">
+		<a href="../../../index.html" class="home">Home</a>
+		<p class="pagecount" id="pagination"></p>
+		<a href="#"><div class="side"><img src="../../assets/resources/tryit.png"></div></a>
+		<div class="main">
+			<blockquote>
+				<ul class="content">
+					
+				</ul>
+
+			<button class="previousbutton">Previous</button>
+			<button class="nextbutton">Next</button>
+			</blockquote>			
+		</div>
+	</div>
+
+	<script id="template-test" type="text/x-handlebars-template">
+
+								<h2>{{Title}}</h2>
+								
+								<p>{{{content}}}</p>
+								
+</script>
+
+<script type="text/javascript" src="../../assets/js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="../../assets/js/handlebars-v3.0.3.js"></script>
+
+
+	<script type="text/javascript">
+	var templatedatacount = 0,totpage=3;
+	var $ulcontent = $("ul.content");
+	var $prevbutton =$(".previousbutton");
+	var $nextbutton = $(".nextbutton");
+		var data=[{
+     	id:"0",
+          Title:"Roman Numerals",
+          content:"<textarea disabled class='code'>"
+          + "<svg width='400' height='400' style='border:solid black 2'\n" 
+          + "xmlns='http://www.w3.org/2000/svg'\n"
+          + "xmlns='http://www.w3.org/2000/svg'\n"
+          + "<line x1='50' y1='50' x2='50' y2='100' stroke='black' />\n"
+          + "<line x1='100' y1='100' x2='75' y2='50' stroke='black' />\n"
+          + "<line x1='100' y1='100' x2='125' y2='50' stroke='black' />\n"
+          + "<path d= 'M50,150 L50,200 M100,200 L75,150 M100,200 L125,150' stroke='black' />\n"
+          + "</svg>\n"
+          + "</textarea><br>"
+          + "<p>The Roman numeral 4 takes three lines. However, it can be done with one path element. "
+          + "The path element has individual commands through the <em>d</em> attribute. The M command "
+          + "tells the renderer where to put the 'pen'. The L command draws a line from the starting "
+          + "point given by M to the point given by L. So each of the three lines is drawn with a "
+          + "pair of M and L commands."
+          + "</p> "
+  },{
+     	id:"1",
+          Title:"Using relative commands",
+          content:"<p>The Roman numerals could also be drawn with this path:<br> "
+          + "<path d='M50,150 l0,50 m50,0, l25,-50 l25,50'"
+          + "   fill='none' stroke='black' /></p>"
+          + "The small letters <em>m</em> and <em>l</em> mean to move relative "
+          + "to the current point. So we positioned the 'pen' at (50,150). Then we "
+          + "drew the numeral one from that point to (50,200) by moving up (y direction) by 50 pixels "
+          + "and no change in x. We made Roman numeral 5 by moving the pen right 50 with no change in y. " 
+          + "The m (and M) commands move the pen without drawing. Now we draw the diagonal by moving right "
+          + "25 and down 50 and the other diagonal by moving right another 50 and back up 50. "
+          + "When you are making a path, put in the first two commands and try. Then add M/m and L/l commands "
+          + "one at a time to see that the 'pen' is going where you want." 
+  },{
+     	id:"2",
+          Title:"Challenge: 2015",
+          content: "<p>Write the current year in Roman numerals. Remember that 1000 is represented by the letter "
+          + "M which is really two upside down Roman 5s (upside down V). It should take 12 lines. "
+ 
+  }]; 
+
+		function calltemplate(){
+			var source = $("#template-test").html();
+                        console.log(source);
+			var template = Handlebars.compile(source);
+			var html = template(data[templatedatacount]);
+			$ulcontent.html(html);
+			document.getElementById('pagination').innerHTML="Page "+(templatedatacount+1)+" of "+totpage;
+		}
+		calltemplate();
+
+		$nextbutton.on('click', function() {
+			if (templatedatacount!=totpage-1) {
+				templatedatacount++;
+				calltemplate();
+			}
+		});
+		$prevbutton.on('click',function(){
+			if (templatedatacount!=0){
+				templatedatacount--;
+				calltemplate();
+			}	
+		});
+
+	</script>
+</body>
+</html>	

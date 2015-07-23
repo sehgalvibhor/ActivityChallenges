@@ -1,0 +1,25 @@
+<svg width='640' height='480' style='border:solid black 2'
+     xmlns='http://www.w3.org/2000/svg'
+     xmlns:xlink='http://www.w3.org/1999/xlink'>
+     <defs>
+         <circle id='c1' cx='0' cy='0' r='3'
+             stroke='none' fill='black' />
+     </defs>
+
+<g transform='translate(250,150)'>
+     <use x='00' y='125' xlink:href='#c1' />
+     <use x='00' y='25'  xlink:href='#c1' />
+     <use x='95' y='00'  xlink:href='#c1' />
+     <use x='156' y='75' xlink:href='#c1' />
+     <use x='95' y='155' xlink:href='#c1' />
+</g>
+
+<g transform= 'translate(250,150)'>
+     <line x1='0' y1='125' x2='0' y2='25' stroke='red' stroke-width='3' />
+     <line x1='0' y1='25' x2='95' y2='0' stroke='red' stroke-width='3' />
+     <line x1='95' y1='0' x2='156' y2='75' stroke='red' stroke-width='3' />
+     <line x1='156' y1='75' x2='95' y2='155' stroke='red' stroke-width='3' />
+     <line x1='95' y1='155' x2='0' y2='125' stroke='red' stroke-width='3' />
+</g>
+
+</svg>

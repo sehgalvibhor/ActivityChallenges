@@ -1,0 +1,60 @@
+  [{
+     	id:"0",
+          Title:"Some Letters",
+          content:"<textarea disabled class='code'>"
+          + "<svg width='60' height='60' 
+          + "xmlns='http://www.w3.org/2000/svg'\n"
+          + "xmlns='http://www.w3.org/2000/svg'\n"
+          + "<g transform='translate(50,50)'>\n"
+          + "<path d='M0,100 L50,0 L100,100 M25,50 L75,50'\n"
+          + "   fill='none' stroke='black' stroke-width='3' />\n"
+          + "</g>\n"
+          + "</svg>\n"
+          + "</textarea><br>"
+          + "<p>The path element is very powerful. To make a shape, you simply "
+          + "give the renderer a starting point and then a sequence of instructions "
+          + "to draw a line to another point.</p>"
+          + "In this challenge you will create paths to draw letters of the alphabet. "
+          + "In this challenge, you can draw the letters: E, F, H, I, K, L, M, N, T, "
+          + "V, W, X, Y, and Z. These letters can be drawn with straight lines. In the "
+          + "next challenge, you will learn how to make the curved lines needed for the "
+          + "remaining letters.</p>"
+          + "The <em>path</em> element above gives the path for the letter A. A path 
+          + "starts with the attribute <em>d</em>. The value is a string of commands. "  
+          + "The first command M0,100 moves the 'pen' to point (0,100) without drawing. "
+          + "The L50,0 draws a line from the point (0,100) to (50,0). The path draws " 
+          + "the letter A."
+          + "</p> "
+  },{
+     	id:"1",
+          Title:"Using relative commands",
+          content:"<p>The letter A could also be drawn with this path:<br> "
+          + "<path d='M0,100 l50,-100 l50,100 m-75,-50 l50,0'"
+          + "   fill='none' stroke='black' stroke-width='3' /></p>"
+          + "The small letters <em>m</em> and <em>l</em> mean to move relative "
+          + "to the current point. So we positioned the 'pen' at (0,100). Then we "
+          + "drew a line from that point to (50,0) by moving right (x direction) 50 "
+          + "pixels and then up (y direction) by 100 pixels. To move up, we used a "
+          + "negative number (100-100 = 0).
+          +" 
+  },{
+     	id:"2",
+          Title:"The letter Y",
+          content: "<p>Let's try a path for the letter Y as another example. "
+          + "Drawing the long line of the letter, we put the pen at (0,100).</p> "
+          + "<p>d = M0,100</p>"
+          + "<p>We need a diagonal line increasing in x and lowering the value of y.</p>"
+          + "<p>d = M0,100 L100,0</p>"
+          + "<p>Now we need a line which starts at the middle of the long line and "
+          + "moves in decreasing value for both x and y.</p>"
+          + "<p>d = M0,100 L100,0 M50,50 L0,0</p>"
+          + "<p>Now try the challenge. Put the letters in a line as you would in "
+          + "printing them on paper. This means you need to start each letter " 
+          + "in a row with the same value for y and an value for x so you don't "
+          + "overwrite a previous letter.<p>"
+          + "<p>In the next challenge, you will learn how to make 'B', 'C', and the "
+          + "other letters with curves. Your challenge then will be to make these "
+          + "letters and then to print your name using svg! "
+ 
+  }]; 
+

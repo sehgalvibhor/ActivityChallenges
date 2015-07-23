@@ -1,0 +1,15 @@
+<svg width='640' height='480' style='border:solid black 2'
+     xmlns='http://www.w3.org/2000/svg'
+     xmlns:xlink='http://www.w3.org/1999/xlink'>
+     <defs>
+         <circle id='c1' cx='0' cy='0' r='3'
+             stroke='none' fill='black' />
+     </defs>
+<g transform='translate(250,150)'>
+     <use x='00' y='125' fill='red' xlink:href='#c1' />
+     <use x='00' y='25' fill='blue' xlink:href='#c1' />
+     <use x='95' y='00' fill='green' xlink:href='#c1' />
+     <use x='156' y='75' fill='yellow' xlink:href='#c1' />
+     <use x='95' y='155' fill='black' xlink:href='#c1' />
+</g>
+</svg>
